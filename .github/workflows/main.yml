@@ -47,7 +47,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
             push: true
-            tags: ${{ secrets.DOCKER_USERNAME }}/infra_actions:latest
+            tags: ${{ secrets.DOCKER_USERNAME }}/infra_actions
 
   deploy:
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker pull romgchursin/infra_actions:latest
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/infra_actions
     
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 romgchursin/infra_actions:latest
+            sudo docker run --rm -d -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/infra_actions
