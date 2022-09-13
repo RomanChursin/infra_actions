@@ -60,7 +60,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker pull romgchursin/infra_actions
+            sudo docker pull romgchursin/infra_actions:latest
     
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 romgchursin/infra_actions
+            sudo docker run --rm -d -p 5000:5000 romgchursin/infra_actions:latest
