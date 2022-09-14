@@ -62,6 +62,6 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             sudo docker pull romgchursin/infra_actions:latest
-            if [[ -n $(docker ps -a -q) ]]; then sudo docker stop $(docker ps -a -q); fi
+            if [[ -n $(sudo docker ps -a -q) ]]; then sudo docker stop $(sudo docker ps -a -q); fi
             sudo docker run --rm -d -p 5000:5000 romgchursin/infra_actions:latest
 
