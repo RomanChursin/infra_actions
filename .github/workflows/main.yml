@@ -46,8 +46,8 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
-            push: true
-            tags: ${{ secrets.DOCKER_USERNAME }}/infra_action_image:my-image
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/infra_action_image:my-image
 
   deploy:
     runs-on: ubuntu-latest
