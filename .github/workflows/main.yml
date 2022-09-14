@@ -47,7 +47,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/romgchursin/infra_action_image:my-image
+          tags: ${{ secrets.DOCKER_USERNAME }}/my-image
 
   deploy:
     runs-on: ubuntu-latest
