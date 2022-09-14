@@ -61,6 +61,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/infra_actions:latest
+            sudo docker pull romgchursin/infra_actions:latest
             if [[ -n $(docker ps -a -q) ]]; then sudo docker stop $(docker ps -a -q); fi
-            sudo docker run --rm -d -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/infra_actions:latest
+            sudo docker run --rm -d -p 5000:5000 romgchursin/infra_actions:latest
